@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery dodavanje / uklanjanje elemenata</title>
+    <script src="./jquery-3.4.1.js"></script>
+</head>
+<body>
+    <h1>jQuery primer</h1>
+
+    <div id="OutputDiv">Ovo je prvi div</div>
+    <div id="TestDiv">
+        Ovo je mod div tekst
+    </div>
+    <script>
+        $(document).ready(function() {
+            // append metoda
+            $('#OutputDiv').append('<span style="background-color: green">Dodaje tag nakon elementa</span>');
+        });
+            // prepend metoda
+            $('#OutputDiv').prepend('<span style="background-color: red">Dodaje tag pre elementa</span>');
+            // remove metoda
+           // $('#TestDiv').remove();
+           
+           // wrap metoda (dinamcko dodaje parent)
+           $('#OutputDiv').wrap('<div class="MojaKlasa">Novi Div</div>');
+           $('.MojaKlasa').css('background-color', 'grey');
+
+           // after metoda
+           $('#OutputDiv').after('<span style="background-color: red">Dodaje tag nakon diva</span>');
+
+           // before metoda
+           $('#OutputDiv').before('<span style="background-color: yellow">Dodaje tag ispred diva(before)</span>');
+
+            // vezba
+            $('#TestDiv').append('<div style="font-size: 24px">Dodajem div iza</div');
+            $('#TestDiv').prepend('<div style="font-size: 18px">Dodajem moj div iza</div');
+            $('#TestDiv').wrap('<div style="background-color: pink"></div>')
+
+
+
+
+    </script>
+</body>
+</html>

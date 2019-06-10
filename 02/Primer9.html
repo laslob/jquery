@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JQuery change dogadjaj primer</title>
+    <script src="./jquery-3.4.1.js"></script>
+</head>
+
+<body>
+
+    <h1>JQuery change dogadjaj primer</h1>
+
+    <div id="izlaz">Tekst iz inputa</div>
+
+    <select id="gradovi">
+        <option value="SU">Subotica</option>
+        <option value="NS">Novi Sad</option>
+        <option value="SO">Sombor</option>
+    </select>
+
+    <input id="tekst" type="text" value="Unesi" />
+    <button id="dodaj">Dodaj</button>
+    <script>
+        $(document).ready(function(){
+            $("#gradovi").change(function(){
+                // kupimo value
+                alert('odabrali ste: ' + $(this).val());
+                // kupimo tekst
+                alert($('#gradovi option:selected').text());
+            });
+            
+        })
+        
+    </script>
+</body>
+
+</html>

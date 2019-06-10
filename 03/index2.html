@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jquerry SlideToggle</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    <style type="text/css">
+       #box {
+           background: maroon;
+           color: white;
+           padding: 10px;
+           height: 100px;
+           width: 100px;
+           position: absolute;
+       }
+       
+    </style>
+</head>
+<body>
+    <h1>Jquerry Animate</h1>
+    <p><button onclick="location.reload()">Reload</button></p>
+    <p><button id="dugme1">Animacija 1</button></p>
+    <p><button id="dugme2">Animacija 2</button></p>
+    <p><button id="dugme3">Animacija 3</button></p>
+    <div id="box">Text</div>
+    <script>
+        $(document).ready(function() {
+           // 1. animacija
+           $('#dugme1').click(function() {
+                $('#box').animate({left: '150px'})
+           });
+           // 2. animacija
+           $('#dugme2').click(function() {
+                $('#box').animate({
+                    left: '250px',
+                    opacity: '0.5',
+                    height: '200px',
+                    width: '120px',
+                    paddingLeft: '40px'
+                }, 4000);
+           });
+           // 3. animacija - queuing
+           $('#dugme3').click(function() {
+                var kocka = $('#box');
+                kocka.animate({height: '300px'}, 3000);
+                kocka.animate({width: '300px'}, 'slow');
+                kocka.animate({fontSize: '36px'}, 'fast');
+                kocka.animate({height: '100px'}, 'slow');
+                kocka.animate({width: '100px'}, 2000);
+           });
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jquerry chaining</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    <style type="text/css">
+       
+    </style>
+</head>
+<body>
+    <h1>Jquerry chaining</h1>
+    
+    <p><button id="dugme">klikni</button></p>
+    <p id="pasus">Lorem ipsum.....</p>
+    <script>
+        $(document).ready(function() {
+           $(document).ready(function() {
+               $('#dugme').click(function(){
+                   $('#pasus')
+                   .css('background', "#ff0")
+                   .slideUp(2000)
+                   .slideDown(2000)
+               })
+           })
+        })
+    </script>
+</body>
+</html>

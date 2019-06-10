@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jquerry traversing</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    <style type="text/css">
+      .ancestors * {
+        display: block;
+        border: 2px solid lightgray;
+        color: #999;
+        padding: 5px;
+        margin: 15px;
+      }
+
+      .pasus {
+          background-color: white;
+          display: block;
+          border: 2px solid lightgray;
+          padding: 5px;
+          margin: 15px;
+          
+      }
+       
+    </style>
+</head>
+<body>
+    <div class="ancestors">\
+        <p>Pasus 1</p>
+        <p>Pasus 2</p>
+        <p class="pasus">Pasus 3</p>
+        <ul>
+                <li>Google</li>
+                <li>Yahoo</li>
+                <li>Bing</li>
+            </ul>
+
+            <button id="dugme1">parent</button>
+            <button id="dugme2">children</button>
+            <button id="dugme3">find</button>
+            <button id="dugme4">siblings</button>
+            <button id="dugme5">next</button>
+            <button id="dugme6">prev</button>
+            <button id="dugme7">first</button>
+            <button id="dugme8">last</button>
+            <button id="dugme9">not</button>
+    </div>
+
+   
+
+    
+    
+
+
+    <script>
+        // button#dugme$*9
+
+        $(document).ready(function() {
+           //selektovanje roditelja           
+           $('#dugme1').click(function() {
+               // $('li').parent().css({'color': 'red', 'border': '2px solid red'}); // parent 
+               // $('li').parents().css({'color': 'red', 'border': '2px solid red'});  // parents
+                $('li').parents('div').css('border', '1px solid red');  // parents div
+           });
+
+           //selektovanje dece
+           $('#dugme2').click(function() {
+                //$('ul').children().css('border', '1px solid red');
+                //$('li:first-child').css('border', '1px solid red');
+                $('li:last-child').css('border', '1px solid green');
+           });
+
+           //find
+           $('#dugme3').click(function() {                
+                    $('div').find('.pasus').css('border', '1px solid red')                
+           });
+
+           // siblings
+           $('#dugme4').click(function() {                
+                    $('ul').siblings().css('border', '1px solid red');              
+           });
+
+           //next
+           $('#dugme5').click(function() {                
+                    $('ul').next().css('border', '1px solid red');              
+           });
+           
+           //prev
+           $('#dugme6').click(function() {                
+                    $('ul').prev().css('border', '1px solid red');              
+           });
+           
+           //first
+           $('#dugme7').click(function() {                
+                    $('p').first().css('border', '1px solid red');              
+           });
+           
+           //last
+           $('#dugme8').click(function() {                
+                    $('p').last().css('border', '1px solid red');              
+           });
+
+
+           //not
+           $('#dugme9').click(function() {                
+                    $('p').not('.pasus').css('border', '1px solid red');              
+           });
+
+        })
+    </script>
+</body>
+</html>

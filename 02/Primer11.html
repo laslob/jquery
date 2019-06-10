@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JQuery show-hide animacija</title>
+    <script src="./jquery-3.4.1.js"></script>
+</head>
+
+<body>
+
+    <h1>JQuery show-hide animacija</h1>
+    <p id="p1">Ovo je paragraf</p>
+
+    <button class="btn1">Sakrij</button>
+    <button class="btn2">Prikaži</button>
+    <script>
+        $(document).ready(function(){
+          /*  // hide metoda
+            $('.btn1').click(function(){
+                $('#p1').hide("slow");
+            });
+            // show metdoa
+            $('.btn2').click(function(){
+                $('#p1').show(3000);
+            })*/
+
+            // fade out
+            $('.btn1').click(function() { 
+                $('#p1').fadeOut(3000);
+            });
+
+            // fade in
+           /* $('.btn2').click(function() { 
+                $('#p1').fadeIn(2000);
+            });*/
+
+            // toggle fade
+            $('.btn2').click(function() { 
+                $('#p1').fadeToggle(1000);
+            });
+
+        })
+    </script>
+</body>
+
+</html>
