@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajax</title>
+</head>
+<body>
+    <h2>XMLHttpRequest Object (JS)</h2>
+    <button id="dugme1">Dohvati sadrzaj</button>
+    <script>
+        var dugme1 = document.getElementById('dugme1');
+        
+        //XMLHttpRequest
+        dugme1.onclick = function() {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if(this.readyState === 4 && this.status === 200) {
+                    console.log(this.responseText);
+                    console.log(JSON.parse(this.responseText));
+                    console.log(JSON.parse(this.responseText).body);
+                }
+            }
+            xhr.open("GET", "https://jsonplaceholder.typicode.com/posts/1");
+            xhr.send();
+        }
+
+
+    </script>
+</body>
+
+</html>

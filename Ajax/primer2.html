@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AJAX</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+</head>
+<body>
+    <h2>jquery AJAX</h2>
+    <button id="dugme1">Dohvati sadrzaj</button>    
+
+    <script>
+        $(document).ready(function() {
+            $('#dugme1').click(function() {
+                var url = "https://jsonplaceholder.typicode.com/posts/1";
+                $.ajax({
+                    url: url,
+                    method: "GET",
+                    success: function(data) {
+                        console.log(data);
+                    },
+                    error: function() {
+                        console.log('Error while getting items!')
+                    }
+                })
+            })
+        })
+    </script>
+    
+</body>
+</html>

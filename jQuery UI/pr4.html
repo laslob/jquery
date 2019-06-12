@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Slider</title>
+    <link rel="stylesheet" href="./jquery-ui.css">    
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    <script src="./jquery-ui.js"></script>
+</head>
+<body>
+    <h2>Slider</h2>
+    <div id="slider">
+        <div id="custom-handle" class="ui-slider-handle"></div>
+    </div>
+    <br>
+    <input type="number" name="" id="broj">
+        <div id="rezultat"></div>
+    <script>
+        
+        
+
+        $(document).ready(function() {
+            //slider
+            var handle = $('#custom-handle');            
+
+            $('#slider').slider({
+               /* min: 10,
+                max: 100,
+                step: 10,*/
+                create: function() {
+                    handle.text($(this).slider('value'));
+                },
+                slide: function(event, ui) {                    
+                    handle.text(ui.value);
+                    showRez(ui.value);                    
+                }
+            });
+
+           
+          function showRez(sliderValue) {            
+                    var inputValue = $('#broj').val();                   
+                    $('#rezultat').html(inputValue * sliderValue);
+          }
+
+        });
+
+        
+
+        
+
+     
+
+    </script>
+</body>
+</html>

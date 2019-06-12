@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>datepicker</title>
+    <link rel="stylesheet" href="./jquery-ui.css">
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    <script src="./jquery-ui.js"></script>
+</head>
+<body>
+    <p>Datum: <input type="text" id="datepicker"></p>
+    <p id="datum"></p>
+    <script>
+        // datepicker komponenta
+        $(document).ready(function() { 
+
+            $('#datepicker').datepicker({
+                'dateFormat': 'dd-mm-yy',
+                'minDate' : new Date()
+                
+        });
+            $('#datepicker').change(function() {
+                $('#datum').text('Izabrali ste: ' + $('#datepicker').val());
+       })
+    })
+    </script>
+</body>
+</html>
