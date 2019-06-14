@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="./jquery-ui.js"></script>
+    <link rel="stylesheet" href="./jquery-ui.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="ispis"></div>
+
+    <script>
+        var url = "https://jsonplaceholder.typicode.com/posts";
+        $.ajax({
+            url: url,
+            method: 'GET',
+            success: function (data) {
+                /*  // I nacin
+                for(var i = 0; i < data.length; i++) {                    
+                    $('#ispis').append(
+                        '<h2>' + data[i].title + '</h2>' +
+                        '<p>' + data[i].body + '</p>'
+                    );
+                }
+            },*/
+
+                // II nacin
+                $.each(data, function (index, item) {
+                    console.log(item);
+                    if (item.userId === 3) {
+                        $('#ispis').append(
+                            '<h3>' + item.title + '</h3>' +
+                            '<div><p>' + item.body + '</p><div>'
+                        )
+                    };
+                });
+
+                $('#ispis').accordion();
+            },
+           
+            error: function () {
+                oonsole.log('error!!!')
+            }
+        })
+
+    </script>
+</body>
+
+</html>
