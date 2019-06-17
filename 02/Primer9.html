@@ -20,6 +20,7 @@
     </select>
 
     <input id="tekst" type="text" value="Unesi" />
+    <input id="skracenica" type="text" value="" />
     <button id="dodaj">Dodaj</button>
     <script>
         $(document).ready(function(){
@@ -29,6 +30,12 @@
                 // kupimo tekst
                 alert($('#gradovi option:selected').text());
             });
+
+            $('#dodaj').click(function() { 
+                var inputVal = $('#tekst').val();
+                var skracenica = $('#skracenica').val();
+                $('#gradovi').append('<option value="' + skracenica + '">' + inputVal + '</option>');
+            })
             
         })
         
