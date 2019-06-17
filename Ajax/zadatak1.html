@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="./jquery-ui.js"></script>
+    <link rel="stylesheet" href="./jquery-ui.css">
+    <style>
+        .completed {
+            background: green;
+        }
+
+        .notCompleted {
+            background: red;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="ispis"></div>
+
+    <script>
+        var url = "https://jsonplaceholder.typicode.com/todos";
+        $.ajax({
+            url: url,
+            method: 'GET',
+            success: function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    console.log(data[i]);
+                    if (data[i].userId == 3) {
+                        var klasa;
+                        if (data[i].completed === true) {
+                            klasa = 'completed';
+                        }
+                        else {
+                            klasa = 'notCompleted'
+                        }
+                        $('#ispis').append(
+                            `<h3 class="${klasa}">${data[i].title}</h3>
+                                <div class="${klasa}">
+                                    <p>Id: ${data[i].id}</p>
+                                    <p>Completed: ${data[i].completed}</p>
+                                </div>`
+                        )
+                    }
+                };
+                $('#ispis').accordion();
+            },
+            error: function () {
+                console.log('error!!!')
+            }
+        })
+    </script>
+</body>
+
+</html>
