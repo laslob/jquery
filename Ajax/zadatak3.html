@@ -14,6 +14,13 @@
 
 <body>
     <div id="ispis"></div>
+    <table class="table shadow p-3 mb-5 bg-white rounded">
+            <tr>
+                <th>Name</th>
+                <th>Provider</th>
+                <th>URL</th>
+            </tr>
+            </table>
 
     <script>
 
@@ -22,16 +29,10 @@
             url: url,
             method: 'GET',
             success: function (data) {
-                console.log(data);
-                $('#ispis').append(
-                    `<table class="table shadow p-3 mb-5 bg-white rounded">
-                    <tr>
-                        <th>Name</th>
-                        <th>Provider</th>
-                        <th>URL</th>
-                    </tr>
-                    </table>`
-                )
+                
+               
+                   
+                
                 for (var i = 0; i < data.length; i++) {
                     $('.table').append(
                         `<tr>
